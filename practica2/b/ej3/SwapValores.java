@@ -27,4 +27,4 @@ public class SwapValores {
   }
 }
 //swap1 no funcionara ya que las variables se estan pasando por valor. Por lo que las variables en el main conservaran su valor original.
-//swap2 no funcionara ya que las variables aunque sean objetos, se esta modificando la direccion apuntada. Por lo que las variables en el main conservaran su valor original.
+//swap2 no funcionara ya que las variables aunque sean objetos, se esta modificando la direccion apuntada. Ya que los Wrappers y Strings son inmutables y si se les intenta modificar el valor, apuntaran a otra parte.
