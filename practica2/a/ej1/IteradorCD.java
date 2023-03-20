@@ -1,4 +1,4 @@
-package practica2.ej1;
+package practica2.a.ej1;
 
 public class IteradorCD {
   public static void main(String[] args) {

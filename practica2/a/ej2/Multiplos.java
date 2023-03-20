@@ -1,4 +1,4 @@
-package practica2.ej2;
+package practica2.a.ej2;
 
 public class Multiplos {
   public static void main(String[] args) {

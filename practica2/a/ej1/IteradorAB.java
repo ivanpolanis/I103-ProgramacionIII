@@ -1,4 +1,4 @@
-package practica2.ej1;
+package practica2.a.ej1;
 public class IteradorAB {
   public static void main(String[] args) {
     IteradorAB iterador = new IteradorAB();

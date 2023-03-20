@@ -1,4 +1,4 @@
-package practica2.ej3;
+package practica2.a.ej3;
 
 public class Tablet {
   private String marca;
