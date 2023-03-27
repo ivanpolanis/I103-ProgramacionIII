@@ -1,4 +1,5 @@
 package ej3;
+import Clases.ListaDeEnterosEnlazada;
 
 public class TestOrdenamiento {
   public static void main(String[] args) {

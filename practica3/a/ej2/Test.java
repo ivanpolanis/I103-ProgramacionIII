@@ -1,4 +1,5 @@
 package ej2;
+import Clases.ListaDeEnterosEnlazada;
 
 public class Test {
   public static void main(String[] args) {

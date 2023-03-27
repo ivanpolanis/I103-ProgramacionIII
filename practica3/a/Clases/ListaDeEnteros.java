@@ -1,4 +1,4 @@
-package ej3;
+package Clases;
 
 /**
  * ListaDeEnteros es una clase abstracta que define los métodos que deberán

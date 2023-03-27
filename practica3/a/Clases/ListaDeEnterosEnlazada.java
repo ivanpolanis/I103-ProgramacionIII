@@ -1,4 +1,4 @@
-package ej3;
+package Clases;
 
 /**
  * La clase ListaDeEnterosEnlazada es una ListaDeEnteros, donde los elementos de

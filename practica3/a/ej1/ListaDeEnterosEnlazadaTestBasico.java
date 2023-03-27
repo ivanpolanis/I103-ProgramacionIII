@@ -1,4 +1,5 @@
 package ej1;
+import Clases.ListaDeEnterosEnlazada;
 
 import java.util.Scanner;
 
