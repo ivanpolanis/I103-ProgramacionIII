@@ -17,6 +17,8 @@ public class Pila<T> {
       return null;
     T dato = this.lista.elemento(this.lista.tamanio() - 1);
     this.lista.eliminarEn(this.lista.tamanio() - 1);
+    if (this.lista.tamanio() == 0)
+      this.lista = null;
     return dato;
   }
 
