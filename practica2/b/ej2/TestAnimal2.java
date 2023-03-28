@@ -17,7 +17,6 @@ public class TestAnimal2 {
     Perro perro2 = (Perro) animal2;
     PerroGrande perroGrande2 = (PerroGrande) animal3;
     Perro perro3 = (Perro) animal3;
-    Gato gato2 = (Gato) animal2;
     perro2.saludo(perro3);
     perro3.saludo(perro2);
     perro2.saludo(perroGrande2);
