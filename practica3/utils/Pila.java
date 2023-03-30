@@ -5,10 +5,11 @@ import practica3.b.Clases.ListaGenericaEnlazada;
 public class Pila<T> {
   private ListaGenericaEnlazada<T> lista;
 
+  public Pila() {
+    this.lista = new ListaGenericaEnlazada<>();
+  }
+
   public void apilar(T elem) {
-    if(this.esVacia()) {
-      this.lista = new ListaGenericaEnlazada<>();
-    }
     this.lista.agregarFinal(elem);
   }
 
@@ -18,7 +19,7 @@ public class Pila<T> {
     T dato = this.lista.elemento(this.lista.tamanio() - 1);
     this.lista.eliminarEn(this.lista.tamanio() - 1);
     if (this.lista.tamanio() == 0)
-      this.lista = null;
+      this.lista.comenzar();
     return dato;
   }
 
@@ -30,6 +31,6 @@ public class Pila<T> {
   }
 
   public boolean esVacia() {
-    return this.lista == null;
+    return this.lista.esVacia();
   }
 }
