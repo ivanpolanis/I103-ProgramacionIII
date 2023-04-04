@@ -82,6 +82,7 @@ public class ArbolBinarioTest {
 		System.out.println(arbolBinarioA.contarHojas());
 		System.out.println(arbolBinarioA.frontera().toString());
 		System.out.println(arbolBinarioA.esLleno());
+		System.out.println(arbolBinarioA.esCompleto());
 	}
 
 }
