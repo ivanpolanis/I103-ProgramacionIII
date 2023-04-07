@@ -36,6 +36,8 @@ public class ArbolBinarioTest {
 		System.out.println(Utils.sumaMaximaHorizontal(arbolBinarioA));
 
 		System.out.println(Adivinanza.secuenciaConMasPreguntas(arbolBinarioB).toString());
+
+		System.out.println(Utils.trayectoriaPesada(arbolBinarioA).toString());
 	}
 
 }

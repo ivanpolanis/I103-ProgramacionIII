@@ -1,6 +1,7 @@
 package utils;
 
 import classes.ArbolBinario;
+import classes.ListaGenericaEnlazada;
 
 public class Utils {
   public static int sumaMaximaVertical(ArbolBinario<Integer> arbol) {
@@ -58,4 +59,24 @@ public class Utils {
     return max;
   }
 
+  public static ListaGenericaEnlazada<Integer> trayectoriaPesada(ArbolBinario<Integer> arbol) {
+    ListaGenericaEnlazada<Integer> lista = new ListaGenericaEnlazada<>();
+
+    recorrer(arbol,lista, 1,0);
+    return lista;
+  }
+
+  private static void recorrer(ArbolBinario<Integer> arbol, ListaGenericaEnlazada<Integer> lista, int nivel, int suma) {
+    if (!arbol.esVacio()) {
+      if (arbol.esHoja()) {
+        lista.agregarFinal(suma + nivel * arbol.getDato());
+      }
+      if (arbol.tieneHijoIzquierdo()) {
+        recorrer(arbol.getHijoIzquierdo(), lista, nivel + 1, suma + nivel * arbol.getDato());
+      }
+      if (arbol.tieneHijoDerecho()) {
+        recorrer(arbol.getHijoDerecho(), lista, nivel + 1, suma + nivel * arbol.getDato());
+      }
+   }
+  }
 }
