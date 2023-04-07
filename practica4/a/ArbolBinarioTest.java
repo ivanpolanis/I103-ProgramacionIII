@@ -11,7 +11,6 @@ public class ArbolBinarioTest {
 		ArbolBinario<Integer> arbolBinarioD;
 		ArbolBinario<Integer> arbolBinarioE;
 		ArbolBinario<Integer> arbolBinarioF;
-		ArbolBinario<Integer> arbolBinarioG;
 		// ----- arbolBinarioA -----
 		arbolBinarioA = new ArbolBinario<Integer>(1);
 		ArbolBinario<Integer> hijoIzquierdo = new ArbolBinario<Integer>(2);
@@ -73,9 +72,6 @@ public class ArbolBinarioTest {
 		hijoDerechoF.agregarHijoDerecho(new ArbolBinario<Integer>(4));
 		arbolBinarioF.agregarHijoIzquierdo(hijoIzquierdoF);
 		arbolBinarioF.agregarHijoDerecho(hijoDerechoF);
-
-		// ----- arbolBinarioG -----
-		arbolBinarioG = new ArbolBinario<Integer>();
 
 		System.out.println(arbolBinarioA.contarHojas());
 		System.out.println(arbolBinarioA.frontera().toString());

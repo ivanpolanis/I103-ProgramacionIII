@@ -20,6 +20,7 @@ public class ArbolBinarioTest {
 
 
 		System.out.println(Utils.sumaMaximaVertical(arbolBinarioA));
+		System.out.println(Utils.sumaMaximaHorizontal(arbolBinarioA));
 
 	}
 
