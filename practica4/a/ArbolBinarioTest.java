@@ -1,8 +1,6 @@
 package practica4.a;
 
-import practica4.Clases.ArbolBinario;
-import practica4.Clases.ListaGenerica;
-import practica4.Clases.ListaGenericaEnlazada;
+import classes.ArbolBinario;
 
 public class ArbolBinarioTest {
 

@@ -1,4 +1,4 @@
-package practica4.Clases;
+package classes;
 
 /**
  * ListaDeEnteros es una clase abstracta que define los métodos que deberán

@@ -1,4 +1,4 @@
-package practica4.Clases;
+package classes;
 
 /**
  * La clase ListaGenericaEnlazada es una ListaGenerica, donde los elementos de

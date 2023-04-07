@@ -1,4 +1,4 @@
-package practica4.Clases;
+package classes;
 /**
  * Esta clase representa un nodo de la lista de enteros enlazada.
  * */

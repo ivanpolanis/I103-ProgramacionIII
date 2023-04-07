@@ -1,4 +1,4 @@
-package practica4.Clases;
+package classes;
 
 public class Cola<T> {
   private ListaGenericaEnlazada<T> lista;

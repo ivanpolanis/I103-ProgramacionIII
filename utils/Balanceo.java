@@ -1,4 +1,4 @@
-package practica3.utils;
+package utils;
 
 public class Balanceo {
   public static boolean balanceado(StringBuffer exp) {

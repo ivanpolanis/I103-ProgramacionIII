@@ -1,6 +1,6 @@
 package practica3.b.ej5;
 
-import practica3.utils.Cola;
+import utils.Cola;
 
 public class Test {
 

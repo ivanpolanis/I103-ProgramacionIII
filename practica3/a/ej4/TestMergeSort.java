@@ -1,7 +1,7 @@
 package ej4;
 
 import Clases.ListaDeEnterosEnlazada;
-import practica3.utils.UtilitariosLista;
+import utils.UtilitariosLista;
 
 public class TestMergeSort {
   public static void main(String[] args) {

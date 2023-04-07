@@ -1,6 +1,6 @@
 package practica3.b.ej3;
 
-import practica3.utils.Pila;
+import utils.Pila;
 
 public class PilaTest {
 public static void main(String[] args) {
