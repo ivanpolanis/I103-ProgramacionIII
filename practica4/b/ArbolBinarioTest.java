@@ -24,7 +24,13 @@ public class ArbolBinarioTest {
 		// ----- arbolBinarioB -----
 		arbolBinarioB = new ArbolBinario<String>("¿Tiene 4 patas?");
 		ArbolBinario<String> hijoIzquierdoB = new ArbolBinario<String>("¿Se mueve?");
-		hijoIzquierdoB.agregarHijoDerecho(new ArbolBinario<String>("Es una mesa"));
+		ArbolBinario<String> h = new ArbolBinario<>("¿Es de madera?");
+		ArbolBinario<String> hh = new ArbolBinario<>("¿Es rojo?");
+		hh.agregarHijoDerecho(new ArbolBinario<String>("Sapo"));
+		h.agregarHijoIzquierdo(hh);
+		h.agregarHijoDerecho(new ArbolBinario<String>("MESA"));
+
+		hijoIzquierdoB.agregarHijoDerecho(h);
 		ArbolBinario<String> hhijoIzquierdoB = new ArbolBinario<String>("¿Ladra?");
 		hhijoIzquierdoB.agregarHijoIzquierdo(new ArbolBinario<String>("Es un perro"));
 		hhijoIzquierdoB.agregarHijoDerecho(new ArbolBinario<String>("Es un gato"));
@@ -37,15 +43,15 @@ public class ArbolBinarioTest {
 		System.out.println(Utils.sumaMaximaVertical(arbolBinarioA));
 		System.out.println(Utils.sumaMaximaHorizontal(arbolBinarioA));
 
-		System.out.println(Adivinanza.secuenciaConMasPreguntas(arbolBinarioB).toString());
+		System.out.println(Adivinanza.secuenciaConMasPreguntas(arbolBinarioB));
 
-		System.out.println(Utils.trayectoriaPesada(arbolBinarioA).toString());
+		System.out.println(Utils.trayectoriaPesada(arbolBinarioA));
 
 		ListaGenericaEnlazada<ListaGenericaEnlazada<String>> listaCaminos = new ListaGenericaEnlazada<>();
 		listaCaminos = Adivinanza.secuenciaConMasPreguntas2(arbolBinarioB);
 
 		for (int i = 0; i < listaCaminos.tamanio(); i++) {
-			System.out.println(listaCaminos.elemento(i).toString());
+			System.out.println(listaCaminos.elemento(i));
 		}
 	}
 
