@@ -1,6 +1,7 @@
 package practica4.b;
 
 import classes.ArbolBinario;
+import classes.ListaGenericaEnlazada;
 import utils.Adivinanza;
 import utils.Utils;
 
@@ -26,6 +27,7 @@ public class ArbolBinarioTest {
 		hijoIzquierdoB.agregarHijoDerecho(new ArbolBinario<String>("Es una mesa"));
 		ArbolBinario<String> hhijoIzquierdoB = new ArbolBinario<String>("¿Ladra?");
 		hhijoIzquierdoB.agregarHijoIzquierdo(new ArbolBinario<String>("Es un perro"));
+		hhijoIzquierdoB.agregarHijoDerecho(new ArbolBinario<String>("Es un gato"));
 		hijoIzquierdoB.agregarHijoIzquierdo(hhijoIzquierdoB);
 		arbolBinarioB.agregarHijoIzquierdo(hijoIzquierdoB);
 		arbolBinarioB.agregarHijoDerecho(new ArbolBinario<String>("Es una persona"));
@@ -38,6 +40,13 @@ public class ArbolBinarioTest {
 		System.out.println(Adivinanza.secuenciaConMasPreguntas(arbolBinarioB).toString());
 
 		System.out.println(Utils.trayectoriaPesada(arbolBinarioA).toString());
+
+		ListaGenericaEnlazada<ListaGenericaEnlazada<String>> listaCaminos = new ListaGenericaEnlazada<>();
+		listaCaminos = Adivinanza.secuenciaConMasPreguntas2(arbolBinarioB);
+
+		for (int i = 0; i < listaCaminos.tamanio(); i++) {
+			System.out.println(listaCaminos.elemento(i).toString());
+		}
 	}
 
 }

@@ -1,5 +1,4 @@
-﻿
-# **Práctica 4B**
+﻿# **Práctica 4B**
 
 ## **Árboles binarios**
 
@@ -13,7 +12,7 @@ Escriba una clase llamada **Utiles** en el paquete **prog3.arbol.binario.util** 
 
 Note que cada **pregunta** se representa como un **nodo** y cada **respuesta** sólo puede ser representada como una **hoja**. Para cada nodo siempre se tienen 2 opciones, si se avanza por el camino de la izquierda (hijo izquierdo) se asume que se obtuvo una respuesta positiva (SI), mientras que si se avanza por el camino de la derecha (hijo derecho) se asume que obtuvo una respuesta negativa (NO).
 
-*a.* **Su tarea es la siguiente:** implemente una clase **Adivinanza** en el paquete **prog3.arbol.binario.util**, que contenga un método con la siguiente firma:
+_a._ **Su tarea es la siguiente:** implemente una clase **Adivinanza** en el paquete **prog3.arbol.binario.util**, que contenga un método con la siguiente firma:
 
 ```java
 public ListaEnlazadaGenerica<String> secuenciaConMasPreguntas(ArbolBinario<String> abinario)
@@ -23,6 +22,6 @@ Es decir, dado un árbol binario de preguntas y respuestas, devuelve el camino m
 
 **4.** **Trayectoria pesada:** En la clase **Utiles** del paquete **prog3.arbol.binario.util** implemente el método **trayectoriaPesada(ab: Arbol Binario) : Lista** que retorna el valor de la trayectoria pesada de **cada una de las hojas** del árbol binario ab
 
-Se define **el valor de la trayectoria pesada** de una hoja de un árbol binario como la suma del contenido de todos los nodos desde la raíz a la hoja multiplicada por el nivel en el que se encuentra. 
+Se define **el valor de la trayectoria pesada** de una hoja de un árbol binario como la suma del contenido de todos los nodos desde la raíz a la hoja multiplicada por el nivel en el que se encuentra.
 
-**5.** **Adivinanza revisado.** Escriba un método llamado ***secuenciaConMasPreguntasVersion2*** (que es una modificación sobre el método ***secuenciaConMasPreguntas***), donde se asume que SI pueden existir varios caminos de igual longitud, en ese caso debe devolver todos los caminos.
+**5.** **Adivinanza revisado.** Escriba un método llamado **_secuenciaConMasPreguntasVersion2_** (que es una modificación sobre el método **_secuenciaConMasPreguntas_**), donde se asume que SI pueden existir varios caminos de igual longitud, en ese caso debe devolver todos los caminos.

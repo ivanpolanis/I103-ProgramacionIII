@@ -61,8 +61,7 @@ public class Utils {
 
   public static ListaGenericaEnlazada<Integer> trayectoriaPesada(ArbolBinario<Integer> arbol) {
     ListaGenericaEnlazada<Integer> lista = new ListaGenericaEnlazada<>();
-
-    recorrer(arbol,lista, 1,0);
+    recorrer(arbol,lista, 0,0);
     return lista;
   }
 
