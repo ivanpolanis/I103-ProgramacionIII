@@ -32,7 +32,7 @@ arbolBinarioB.agregarHijoDerecho(hijoDerechoB);
 
 _a._ **contarHojas():int** Devuelve la cantidad de hojas del árbol receptor.
 
-_b._ **frontera():ListaGenerica<T>** Se define **frontera** de un árbol binario, a las hojas de un árbol binario recorridos de izquierda a derecha.
+_b._ **frontera():ListaGenerica\<T>** Se define **frontera** de un árbol binario, a las hojas de un árbol binario recorridos de izquierda a derecha.
 
 > **NOTA:** analice los 3 tipos de recorridos en profundidad de un ArbolBinario y elija el que corresponde.
 
@@ -42,9 +42,9 @@ _d._ Indique cual sería la lógica de la solución (no implemente), para el sig
 
 **esCompleto(): boolean.** Devuelve true si el árbol es completo. Un árbol binario de altura h es completo si es lleno hasta el nivel (h-1) y el nivel h se completa de izquierda a derecha.
 
-**4. JUnit (prueba de la implementación de los ejercicios anteriores)**
+**4.** JUnit (prueba de la implementación de los ejercicios anteriores)
 
-_a._ Descargue del sitio <https://github.com/junit-team/junit/releases>[ ](https://github.com/junit-team/junit/releases)el achivo .jar (librería recomendada version 4.7) correspondiente a JUnit ó descarguelo de la página de la cátedra.
+_a._ Descargue del sitio [JUnit](https://github.com/junit-team/junit/releases) el achivo .jar (librería recomendada version 4.7) correspondiente a JUnit ó descarguelo de la página de la cátedra.
 
 _b._ Incluya dicha librería en su proyecto (cree una carpeta lib de modo que la librería quede dentro de su proyecto)
 
