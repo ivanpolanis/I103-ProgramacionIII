@@ -5,7 +5,6 @@ import classes.ArbolGeneral;
 public class Test {
     public static void main(String[] args){
         ArbolGeneral<Integer> a = new ArbolGeneral<Integer>(1);
-        //hace un arbol random
         a.agregarHijo(new ArbolGeneral<Integer>(2));
         a.agregarHijo(new ArbolGeneral<Integer>(3));
         a.agregarHijo(new ArbolGeneral<Integer>(4));
@@ -18,5 +17,9 @@ public class Test {
         System.out.println("Altura del arbol: " + a.altura()); //3
 
         System.out.println(a.include(9));
+
+        System.out.println(a.nivel(9));
+
+        System.out.println(a.ancho());
     }    
 }

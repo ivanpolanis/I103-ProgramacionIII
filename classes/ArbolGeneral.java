@@ -64,7 +64,7 @@ public class ArbolGeneral<T> {
 	}
 
 	public boolean include(T n) {
-		//Creo una variable para guardar si encontramos el dato o no
+		// Creo una variable para guardar si encontramos el dato o no
 		boolean flag = false;
 
 		if (n.equals(this.getDato())) {
@@ -72,7 +72,7 @@ public class ArbolGeneral<T> {
 		}
 
 		if (this.tieneHijos()) {
-			//Recorro la lista y modifico la flag si el dato coincide y la devuelvo
+			// Recorro la lista y modifico la flag si el dato coincide y la devuelvo
 			for (int i = 0; i < this.getHijos().tamanio(); i++) {
 				flag = this.getHijos().elemento(i).include(n);
 				if (flag)
@@ -86,7 +86,7 @@ public class ArbolGeneral<T> {
 	public Integer altura() {
 		int max = 0;
 		int nivel = 0;
-		
+
 		if (this.esHoja()) {
 			return nivel;
 		}
@@ -103,11 +103,47 @@ public class ArbolGeneral<T> {
 	}
 
 	public Integer nivel(T dato) {
-		return -1;
+		int nivel = -1;
+		if (dato.equals(this.getDato())) {
+			return nivel+1;
+		}
+
+		if (this.tieneHijos()) {
+			for (int i = 0; i < this.getHijos().tamanio(); i++) {
+				nivel = this.getHijos().elemento(i).nivel(dato) + 1;
+				if(nivel > -1)
+					return nivel + 1;
+			}
+		}
+
+		return nivel;
 	}
 
 	public Integer ancho() {
-		return 0;
+		int max = 0;
+		int ancho = 0;
+		Cola<ArbolGeneral<T>> cola = new Cola<>();
+		cola.encolar(this);
+		cola.encolar(null);
+		ArbolGeneral<T> arbol = null;
+		while (!cola.esVacio()) {
+			arbol = cola.desencolar();
+
+			if (arbol != null) {
+				for (int i = 0; i < arbol.getHijos().tamanio(); i++) {
+					cola.encolar(arbol.getHijos().elemento(i));
+					ancho++;
+				}
+				if (ancho > max) {
+					max = ancho;
+				}
+			}
+			if (arbol == null &&  !cola.esVacio()) {
+				ancho = 0;
+				cola.encolar(null);	
+			}
+		}
+		return max;
 	}
 
 }
