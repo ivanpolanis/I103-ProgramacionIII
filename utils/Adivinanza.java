@@ -5,13 +5,13 @@ import classes.ListaGenericaEnlazada;
 
 public class Adivinanza {
   public static ListaGenericaEnlazada<String> secuenciaConMasPreguntas(ArbolBinario<String> arbol) {
-    //Si es hoja creamos una lista y la devolvemos.
+    // Si es hoja creamos una lista y la devolvemos.
     if (arbol.esHoja()) {
       ListaGenericaEnlazada<String> lista = new ListaGenericaEnlazada<>();
       lista.agregarInicio(arbol.getDato());
       return lista;
     }
-    //Si no es hoja, creamos dos listas
+    // Si no es hoja, creamos dos listas
     ListaGenericaEnlazada<String> listaIzq = new ListaGenericaEnlazada<>();
     ListaGenericaEnlazada<String> listaDer = new ListaGenericaEnlazada<>();
 
@@ -24,12 +24,13 @@ public class Adivinanza {
       listaDer.agregarInicio(arbol.getDato());
     }
 
-    //Devolvemos la lista con mas elementos
+    // Devolvemos la lista con mas elementos
     return listaIzq.tamanio() >= listaDer.tamanio() ? listaIzq : listaDer;
 
   }
 
-  public static ListaGenericaEnlazada<ListaGenericaEnlazada<String>> secuenciaConMasPreguntas2(ArbolBinario<String> arbol) {
+  public static ListaGenericaEnlazada<ListaGenericaEnlazada<String>> secuenciaConMasPreguntas2(
+      ArbolBinario<String> arbol) {
     ListaGenericaEnlazada<ListaGenericaEnlazada<String>> lista = new ListaGenericaEnlazada<>();
     if (arbol.esHoja()) {
       ListaGenericaEnlazada<String> aux = new ListaGenericaEnlazada<>();
@@ -38,7 +39,6 @@ public class Adivinanza {
       System.out.println(arbol.getDato());
       return lista;
     }
-    System.out.println(arbol.getDato());
     ListaGenericaEnlazada<ListaGenericaEnlazada<String>> listaIzq = new ListaGenericaEnlazada<>();
     ListaGenericaEnlazada<ListaGenericaEnlazada<String>> listaDer = new ListaGenericaEnlazada<>();
 
@@ -59,20 +59,17 @@ public class Adivinanza {
         i++;
       }
     }
-    System.out.println("Me rompo 62");
-    System.out.println(arbol.tieneHijoIzquierdo() && !arbol.tieneHijoDerecho());
-  if (listaIzq.elemento(0) != null && listaDer.elemento(0) != null && listaIzq.elemento(0).tamanio() > listaDer.elemento(0).tamanio()) {
+    if (listaIzq.elemento(0) != null && listaDer.elemento(0) != null
+        && listaIzq.elemento(0).tamanio() > listaDer.elemento(0).tamanio()) {
       return listaIzq;
     }
-    System.out.println("Me rompo 66");
-    if (listaDer.elemento(0) != null && listaIzq.elemento(0) != null && listaDer.elemento(0).tamanio() > listaIzq.elemento(0).tamanio()) {
+    if (listaDer.elemento(0) != null && listaIzq.elemento(0) != null
+        && listaDer.elemento(0).tamanio() > listaIzq.elemento(0).tamanio()) {
       return listaDer;
     }
-    System.out.println("me rompo 70");
     for (int i = 0; i < listaIzq.tamanio(); i++) {
       lista.agregarFinal(listaIzq.elemento(i));
     }
-    System.out.println("Me rompo");
     for (int i = 0; i < listaDer.tamanio(); i++) {
       lista.agregarFinal(listaDer.elemento(i));
     }
