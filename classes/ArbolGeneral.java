@@ -105,17 +105,16 @@ public class ArbolGeneral<T> {
 	public Integer nivel(T dato) {
 		int nivel = -1;
 		if (dato.equals(this.getDato())) {
-			return nivel+1;
+			return nivel + 1;
 		}
-
 		if (this.tieneHijos()) {
 			for (int i = 0; i < this.getHijos().tamanio(); i++) {
-				nivel = this.getHijos().elemento(i).nivel(dato) + 1;
-				if(nivel > -1)
+				nivel = this.getHijos().elemento(i).nivel(dato);
+				if (nivel != -1) {
 					return nivel + 1;
+				}
 			}
 		}
-
 		return nivel;
 	}
 
@@ -138,9 +137,9 @@ public class ArbolGeneral<T> {
 					max = ancho;
 				}
 			}
-			if (arbol == null &&  !cola.esVacio()) {
+			if (arbol == null && !cola.esVacio()) {
 				ancho = 0;
-				cola.encolar(null);	
+				cola.encolar(null);
 			}
 		}
 		return max;

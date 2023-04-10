@@ -18,7 +18,7 @@ public class Test {
 
         System.out.println(a.include(9));
 
-        System.out.println(a.nivel(9));
+        System.out.println(a.nivel(5));
 
         System.out.println(a.ancho());
     }    
