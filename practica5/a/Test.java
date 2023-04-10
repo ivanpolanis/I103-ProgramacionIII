@@ -16,5 +16,7 @@ public class Test {
         a.getHijos().elemento(1).getHijos().elemento(0).agregarHijo(new ArbolGeneral<Integer>(9));
 
         System.out.println("Altura del arbol: " + a.altura()); //3
+
+        System.out.println(a.include(9));
     }    
 }

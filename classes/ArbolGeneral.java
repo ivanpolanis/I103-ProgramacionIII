@@ -63,6 +63,26 @@ public class ArbolGeneral<T> {
 		return null;
 	}
 
+	public boolean include(T n) {
+		//Creo una variable para guardar si encontramos el dato o no
+		boolean flag = false;
+
+		if (n.equals(this.getDato())) {
+			return true;
+		}
+
+		if (this.tieneHijos()) {
+			//Recorro la lista y modifico la flag si el dato coincide y la devuelvo
+			for (int i = 0; i < this.getHijos().tamanio(); i++) {
+				flag = this.getHijos().elemento(i).include(n);
+				if (flag)
+					return flag;
+			}
+		}
+
+		return flag;
+	}
+
 	public Integer altura() {
 		int max = 0;
 		int nivel = 0;
@@ -83,12 +103,10 @@ public class ArbolGeneral<T> {
 	}
 
 	public Integer nivel(T dato) {
-		// falta implementar
 		return -1;
 	}
 
 	public Integer ancho() {
-		// Falta implementar..
 		return 0;
 	}
 
