@@ -59,10 +59,6 @@ public class ArbolGeneral<T> {
 		}
 	}
 
-	public ListaGenericaEnlazada<T> preOrden() {
-		return null;
-	}
-
 	public boolean include(T n) {
 		// Creo una variable para guardar si encontramos el dato o no
 		boolean flag = false;
