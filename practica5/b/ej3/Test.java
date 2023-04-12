@@ -13,6 +13,8 @@ public class Test {
     trie.agregarPalabra("homo");
     trie.ImprimirPorNiveles();
     System.out.println("\n");
+    System.out.println(trie.palabraQueEmpizaCon("ar"));
+      
   }
   
 }

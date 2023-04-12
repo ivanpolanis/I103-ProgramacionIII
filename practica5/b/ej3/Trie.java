@@ -1,11 +1,14 @@
 package practica5.b.ej3;
 
+import java.util.List;
+
+import Clases.ListaDeEnterosEnlazada;
 import classes.ArbolGeneral;
 import classes.ListaGenerica;
+import classes.ListaGenericaEnlazada;
 
 public class Trie {
   private ArbolGeneral<Character> trie;
-  private boolean fin;
 
   public Trie() {
     trie = new ArbolGeneral<Character>(null);
@@ -57,6 +60,33 @@ public class Trie {
 
   }
 
+  public ListaGenerica<StringBuilder> palabraQueEmpizaCon(String prefijo) {
+    ListaGenerica<StringBuilder> list = new ListaGenericaEnlazada<>();
+    ListaGenerica<ArbolGeneral<Character>> l = this.trie.getHijos();
+    for (char c : prefijo.toCharArray()) {
+      int pos = estaChar(l, c);
+      if (pos == -1)
+        return null;
+      l = l.elemento(pos).getHijos();
+    }
+
+    recorrer(l, new StringBuilder(prefijo), list);
+
+    return list;
+  }
+
+  private void recorrer(ListaGenerica<ArbolGeneral<Character>> l, StringBuilder s, ListaGenerica<StringBuilder> list) {
+    for (int i = 0; i < l.tamanio(); i++) {
+      s.append(l.elemento(i).getDato());
+      if (l.elemento(i).esHoja()) {
+        list.agregarFinal(new StringBuilder(s));
+      } else {
+        recorrer(l.elemento(i).getHijos(), s, list);
+      }
+      s.deleteCharAt(s.length() - 1);
+    }
+  }
+  
   public void ImprimirPorNiveles() {
     trie.ImprimirPorNiveles();
   }
