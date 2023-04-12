@@ -145,4 +145,25 @@ public class ArbolGeneral<T> {
 		return max;
 	}
 
+		public void ImprimirPorNiveles() {
+		ArbolGeneral<T> arbol = null;
+		Cola<ArbolGeneral<T>> cola = new Cola<ArbolGeneral<T>>();
+		cola.encolar(this);
+		cola.encolar(null);
+		while (!cola.esVacio()) {
+			arbol = cola.desencolar();
+			if (arbol != null) {
+				System.out.print(arbol.getDato() + " ");
+				if (arbol.tieneHijos()) {
+					for (int i = 0; i < arbol.getHijos().tamanio(); i++) {
+						cola.encolar(arbol.getHijos().elemento(i));
+					}
+				}
+			} else if (!cola.esVacio()) {
+				System.out.println();
+				cola.encolar(null);
+			}
+		}
+	}
+
 }

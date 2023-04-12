@@ -1,6 +1,6 @@
-﻿# **Práctica nº 5 - B**
+﻿# **Práctica 5B**
 
-## **TEMA 5: Árbol general**
+## **Árbol general**
 
 **1\.** Considere la siguiente representación de la relación entre una empresa y sus empleados:
 
