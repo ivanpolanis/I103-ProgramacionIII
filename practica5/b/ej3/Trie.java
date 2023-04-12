@@ -1,8 +1,5 @@
 package practica5.b.ej3;
 
-import java.util.List;
-
-import Clases.ListaDeEnterosEnlazada;
 import classes.ArbolGeneral;
 import classes.ListaGenerica;
 import classes.ListaGenericaEnlazada;
@@ -86,7 +83,7 @@ public class Trie {
       s.deleteCharAt(s.length() - 1);
     }
   }
-  
+
   public void ImprimirPorNiveles() {
     trie.ImprimirPorNiveles();
   }
