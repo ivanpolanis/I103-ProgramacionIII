@@ -1,0 +1,23 @@
+public void preorder(){
+	System.out.println(this.getDato());
+	if(this.tieneHijoIzquierdo())
+		this.getHijoIzquierdo().preorder();
+	if(this.tieneHijoDerecho())
+		this.getHijoDerecho().preorder();
+}
+
+public void inorder(){
+	if(this.tieneHijoIzquierdo())
+		this.getHijoIzquierdo().inorder();
+	System.out.println(this.getDato());
+	if(this.tieneHijoDerecho())
+		this.getHijoDerecho().inorder();
+}
+
+public void postorder(){
+	if(this.tieneHijoIzquierdo())
+		this.getHijoIzquierdo().postorder();
+	if(this.tieneHijoDerecho())
+		this.getHijoDerecho().postorder();
+	System.out.println(this.getDato());
+}

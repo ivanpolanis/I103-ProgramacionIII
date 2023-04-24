@@ -1,0 +1,22 @@
+public class CodigoZigZag{
+    public ListaGenerica<Character> descrifrarCodigo(ArbolBinario<Character> arbol, ListaGenerica<String> listaDeSecuencias){
+
+        ListaGenerica<Character> palabra = new ListaGenericaEnlazada<>();
+        listaDeSecuencias.comenzar();
+
+        while(!listaDeSecuencias.fin()){
+            ArbolBinario<Character> aux = arbol;
+            String secuencia = listaDeSecuencias.proximo();
+            for(int i = 0; i < secuencia.length(); i++){
+                if('0' == secuencia.charAt(i)){
+                    aux = aux.getHijoIzquierdo(); 
+                } else {
+                    aux = aux.getHijoDerecho();
+                }
+            }
+            palabra.agregarFinal(aux.getDato());
+        }
+
+        return palabra;
+    }
+}

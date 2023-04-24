@@ -1,0 +1,98 @@
+public int altura(){
+    ArbolGeneral<T> aux;
+    Cola<ArbolGeneral<T>> cola = new Cola<>();
+    cola.encolar(this);
+    cola.encolar(null);
+    int nivel=0;
+
+    while(!cola.esVacia()){
+        aux = cola.desencolar();
+        if(aux != null){
+            ListaGenerica<ArbolGeneral<T>> hijos = aux.getHijos();
+            hijos.comenzar();
+            while(!hijos.fin()){
+                cola.enconlar(hijos.proximo());
+            }
+        } else if (!cola.esVacia()){
+            nivel++;
+            cola.encolar(null);
+        }
+    }
+
+    return nivel;
+}
+
+public int alturaR(){
+    int max = 0;
+    int nivel = 0;
+    if(this.esHoja())
+        return nivel;
+
+    ListaGenerica<ArbolGeneral<T>> lista = this.getHijos();
+    lista.comenzar();
+    while(!lista.fin()){
+        nivel = lista.proximo().alturaR() + 1;
+        if(nivel > max)
+            max = nivel;
+    }
+    return max;
+}
+
+public boolean include(T dato) {
+    boolean estoy = false;
+
+    if(this.getDato() == dato)
+        return true;
+
+    ListaGenerica<ArbolGeneral<T>> hijos = this.getHijos();
+
+    hijos.comenzar();
+    while(!hijos.fin() && !estoy){
+        estoy = hijos.proximo().include(dato);
+    }
+    return estoy;
+}
+
+public int nivel(T dato){
+    if(this.getDato() == dato)
+        return 0;
+
+    ListaGenerica<ArbolGeneral<T>> hijos = this.getHijos();
+    int nivel = -1;
+
+    hijos.comenzar();
+    while(!hijos.fin()){
+        nivel = hijos.proximo().nivel();
+        if(nivel != -1)
+            nivel++;
+    }
+
+    return nivel;
+}
+
+public int ancho(){
+    int max = 0, ancho = 0;
+    ArbolGeneral<T> aux;
+    Cola<ArbolGeneral<T>> cola = new Cola<>();
+    cola.encolar(this);
+    cola.encolar(null);
+
+    while(!cola.esVacia()){
+        aux = cola.desencolar();
+        if(aux != null) {
+            ListaGenerica<ArbolGeneral<T>> hijos = aux.getHijos();
+            hijos.comenzar();
+            while(!hijos.fin()){
+                cola.encolar(hijos.proximo());
+            }
+            ancho++;
+        } else {
+            if(ancho > max)
+                max = ancho;
+            if (!cola.esVacia()){
+                cola.encolar(null);
+                ancho = 0;
+        }
+    }
+    return max;
+}

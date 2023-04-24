@@ -1,0 +1,38 @@
+public class Procesador {
+    private ArbolBinario<Integer> arbol;
+
+    public Procesador(){
+        arbol = new ArbolBinario<Integer>();
+    }
+
+    public Procesador(ArbolBinario<Integer> arbol){
+        this.arbol = arbol;
+    }
+
+    public ListaGenerica<ArbolBinario<Integer>> procesar(){
+        ListaGenerica<ArbolBinario<Integer>> lista = new ListaGenericaEnlazada<>();
+        if(arbol.esHoja()){
+            if(arbol.getDato() <= 0)
+                lista.agregarFinal(arbol);
+            return lista;
+        }
+        int sum = 0;
+        ListaGenerica<ArbolBinario<Integer>> lista2 = new ListaGenericaEnlazada<>();
+        if(arbol.tieneHijoIzquierdo()){
+            sum += arbol.getHijoIzquierdo().getDato();
+            Procesador aux = new Procesador(arbol.getHijoIzquierdo());
+            lista = aux.procesar();
+        }
+        if(arbol.tieneHijoDerecho()){
+            sum += arbol.getHijoDerecho().getDato();
+            Procesador aux = new Procesador(arbol.getHijoDerecho());
+            lista2 = aux.procesar();
+        }
+        lista2.comenzar();
+        while(!lista2.fin())
+            lista.agregarFinal(lista2.proximo());
+        if(arbol.getDato() <= sum)
+            lista.agregarFinal(arbol);
+        return lista;
+    }
+}

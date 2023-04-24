@@ -1,0 +1,22 @@
+public class BucarPadreMenor {
+    public static ListaGenerica<ArbolGeneral<Integer>> buscarDatos(ArbolGeneral<Integer> arbol){
+        ListaGenerica<ArbolGeneral<Integer>> lista = new ListaGenericaEnlazada<>();
+        buscarDatos(arbol,lista);
+        return lista;
+    }
+
+    private static int buscarDatos(ArbolGeneral<Integer> arbol, ListaGenerica<ArbolGeneral<Integer>> lista){
+        if(arbol.esHoja())
+            return arbol.getDato();
+        int cont = 0;
+        ListaGenerica<ArbolGeneral<Integer>> lista = arbol.getHijos();
+        lista.comenzar();
+        while(!lista.fin()){
+            cont += buscarDatos(arbol,lista);
+        }
+        if(arbol.getDato() < cont){
+            lista.agregarFinal(arbol);
+        }
+        return arbol.getDato();
+    }
+}

@@ -1,0 +1,27 @@
+public class ProcesadorDeArbol{
+    private ArbolBinario<Character> arbol;
+
+    public ProcesadorDeArbol(){
+        ArbolBinario<Character> arbol = new ArbolBinario<>();
+    }
+
+    public int procesar(int K){
+        if(this.arbol.esHoja() && K==0)
+            return 1;
+        int cant = 0;
+        if((!this.arbol.tieneHijoIzquierdo() && this.arbol.tieneHijoDerecho()) || this.arbol.tieneHijoIzquierdo() && !this.arbol.tieneHijoDerecho())
+            K--;
+
+        if(this.arbol.tieneHijoIzquierdo()){ 
+            ProcesadorDeArbol aux = new ProcesadorDeArbol(arbol.getHijoIzquierdo());
+            cant += aux.procesar(K);
+        }
+
+        if(this.arbol.tieneHijoDerecho()){
+           ProcesadorDeArbol aux = new ProcesadorDeArbol(arbol.getHijoDerecho());
+           cant += aux.procesar(K);
+        }
+
+        return cant;
+    }
+}

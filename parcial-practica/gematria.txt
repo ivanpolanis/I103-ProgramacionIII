@@ -1,0 +1,19 @@
+public class ProcesadorGematria(){
+    public int contar(ArbolGeneral<Integer> arbol, int valor){
+        int resta = valor - arbol.getDato();
+        if(arbol.esHoja() && resta == 0){
+            return 1;
+        }
+        int cont = 0;
+        if(resta > 0) {
+            ListaGenerica<ArbolGeneral<Integer>> lista = arbol.getHijos();
+            lista.comenzar();
+            while(!lista.fin()){
+                ArbolGeneral<Integer> arbolG = lista.proximo();
+                if(resta > 0)
+                    cont = cont + contar(arbolG,resta);
+            }
+        }
+        return cont;
+    }
+}

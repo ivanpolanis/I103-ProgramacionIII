@@ -1,0 +1,19 @@
+public ListaGenerica<Personaje> devolverPrincesa(ArbolGeneral<Personaje> arbol){
+    ListaGenerica<Personaje> lista = new ListaGenericaEnlazada<>();
+    if(arbol.esPrincesa() || arbol.esDragon() || arbol.esHoja()){
+        if(arbol.esPrincesa()){
+            lista.agregarInicio(arbol.getDato());
+        }
+        return lista;
+    }
+
+    ListaGenerica<ArbolGeneral<Personaje>> hijos = arbol.getHijos();
+    hijos.comenzar();
+    while(!hijos.fin() && lista.esVacia()){
+        lista = devolverPrincesa(hijos.proximo());
+        if(!lista.esVacia()){
+            lista.agregarInicio(arbol.getDato());
+        }
+    }
+    return lista;
+}

@@ -1,0 +1,50 @@
+public int contarHojas() {
+    int hojas = 0;
+    if(this.esHoja())
+        return 1;
+    if(this.tieneHijoIzquierdo())
+        hojas += this.getHijoIzquierdo().contarHojas();
+    if(this.tieneHijoDerecho())
+        hojas += this.getHijoDerecho().contarHojas();
+    return hojas;
+}
+
+public ListaGenerica<T> frontera(){
+    ListaGenerica<T> lista = new ListaGenericaEnlazada();
+    this.fronteraRecursivo(lista);
+    return lista;
+}
+
+private void fronteraRecursivo(ListaGenerica<T> lista) {
+    if(this.tieneHijoIzquierdo())
+        this.getHijoIzquierdo().fronteraRecursivo(lista);
+    if(this.esHoja())
+        lista.agregarFinal(this.getDato());
+    if(this.tieneHijoDerecho())
+        this.getHijoDerecho().fronteraRecursiva(lista);
+}
+
+public boolean esLleno(){
+    ArbolBinario<T> aux;
+    Cola<ArbolBinario<T>> cola = new Cola<>();
+    cola.encolar(this);
+    cola.encolar(null);
+    int nivel = 0; 
+    int cont = 0;
+    while(!cola.esVacia()){
+        aux = cola.desencolar();
+        if(aux != null){
+           if(!aux.esHoja()){
+                if(!aux.tieneHijoIzquierdo() || !aux.tieneHijoDerecho())
+                    return false;
+                cola.encolar(aux.getHijoIzquierdo());
+                cola.encolar(aux.getHijoDerecho());
+           } 
+            cont++; 
+        } else if (!cola.esVacia()){
+            cola.encolar(null);
+            nivel++;
+        }
+    }
+    return ((Math.pow(nivel+1,2)-1) == cont);
+}

@@ -1,0 +1,31 @@
+public ListaGenerica<Recurso> getImagenes(int nivel){
+    ArbolGeneral<Recurso> aux;
+    ColaGenerica<ArbolGeneral<Recurso>> cola = new Cola<>();
+    cola.encolar(this);
+    cola.encolar(null);
+    int actual = 0;
+    ListaGenerica<Recurso> lista = new ListaGenericaEnlazada<>();
+    while(!cola.esVacia()){
+        aux = cola.desencolar();
+        if(aux != null){
+            if(actual == nivel){
+                while(!cola.esVacia()){
+                    if(aux.getDato().esImagen()){
+                        lista.agregarAlFinal(aux.getDato());
+                    }
+                    aux = cola.desencolar();
+                }
+                return lista;
+            }
+            ListaGenerica<ArbolGeneral<Recursos>> hijos = aux.getHijos();
+            hijos.comenzar();
+            while(!hijos.fin){
+                cola.encolar(hijos.proximo);
+            }
+        } else if(!cola.esVacia()){
+            nivel++;
+            cola.encolar(null);
+        }
+   }
+   return lista;
+}
