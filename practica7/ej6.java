@@ -3,9 +3,9 @@ package practica7;
 import classes.grafos.Vertice;
 import classes.grafos.VerticeImplListAdy;
 import classes.ListaGenerica;
+import classes.ListaGenericaEnlazada;
 import classes.grafos.Grafo;
 import classes.grafos.GrafoImplListAdy;
-import classes.grafos.utils.Recorridos;
 
 public class ej6 {
   public static void main(String args[]) {
@@ -42,7 +42,19 @@ public class ej6 {
 
     Mapa mapa = new Mapa(grafo);
 
-    System.out.println("El camino desde Buenos Aires a San Juan es: " + mapa.devolverCamino("Buenos Aires", "Mar del Plata"));
+    ListaGenerica<String> exc = new ListaGenericaEnlazada<String>();
+    exc.agregarFinal("Rosario");
 
+    System.out
+        .println("El camino desde Buenos Aires a San Juan es: " + mapa.devolverCamino("Buenos Aires", "Mar del Plata"));
+
+    System.out.println("El camino desde Buenos Aires a San Juan exceptuando Rosario es: "
+        + mapa.devolverCaminoExceptuando("Cordoba", "Mendoza", exc));
+
+    System.out.println("El camino más corto entre Buenos Aires y San Juan es: "
+        + mapa.caminoMasCorto("Buenos Aires", "San Juan"));
+
+    System.out.println("El camino utilizando 20 litros de combustible entre Buenos Aires y San Juan es: "
+        + mapa.caminoSinCargarCombustible("Buenos Aires", "San Juan", 5));
   }
 }
