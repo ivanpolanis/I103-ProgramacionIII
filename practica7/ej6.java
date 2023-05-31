@@ -28,7 +28,7 @@ public class ej6 {
     grafo.agregarVertice(v7);
     grafo.agregarVertice(v8);
 
-    grafo.conectar(v1, v2,2);
+    grafo.conectar(v1, v2, 2);
     grafo.conectar(v1, v3, 5);
     grafo.conectar(v1, v4, 8);
     grafo.conectar(v2, v3, 2);
@@ -55,6 +55,9 @@ public class ej6 {
         + mapa.caminoMasCorto("Buenos Aires", "San Juan"));
 
     System.out.println("El camino utilizando 20 litros de combustible entre Buenos Aires y San Juan es: "
-        + mapa.caminoSinCargarCombustible("Buenos Aires", "San Juan", 5));
+        + mapa.caminoSinCargarCombustible("Buenos Aires", "San Juan", 20));
+
+    System.out.println("El camino con menor carga de combustible entre Buenos Aires y San Juan es: "
+        + mapa.caminoConMenorCargaDeCombustible("Buenos Aires", "San Juan", 10));
   }
 }

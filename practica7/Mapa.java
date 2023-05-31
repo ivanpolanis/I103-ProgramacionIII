@@ -178,4 +178,57 @@ public class Mapa {
 
         }
     }
+
+    // -------------------------------------------------------------------------------------------
+
+    public ListaGenerica<String> caminoConMenorCargaDeCombustible(String ciudad1, String ciudad2, int tanque) {
+        ListaGenerica<String> camino = new ListaGenericaEnlazada<>();
+        ListaGenerica<String> caminoActual = new ListaGenericaEnlazada<>();
+        boolean[] marca = new boolean[mapaCiudades.listaDeVertices().tamanio()];
+        int i;
+        for (i = 0; i < marca.length; i++) {
+            if (mapaCiudades.listaDeVertices().elemento(i).dato().equals(ciudad1))
+                break;
+        }
+        if (i < marca.length) {
+            caminoConMenorCargaDeCombustible(i,marca,mapaCiudades,ciudad2,tanque,tanque,0,0, camino, caminoActual);
+        }
+        return camino;
+    }
+
+    private void caminoConMenorCargaDeCombustible(int i, boolean[] marca,Grafo<String> grafo, String ciudad2, int capacidad, int tanque, int carga, int cargaActual, ListaGenerica<String> camino, ListaGenerica<String> caminoActual){
+        marca[i] = true;
+        Vertice<String> v = grafo.listaDeVertices().elemento(i);
+        caminoActual.agregarFinal(v.dato());
+        if (v.dato().equals(ciudad2)) {
+            if ((camino.tamanio() == 0) || (carga > cargaActual)){
+                copiarCamino(camino, caminoActual);
+                carga = cargaActual;
+            }
+            return;
+        }
+
+        ListaGenerica<Arista<String>> ady = grafo.listaDeAdyacentes(v);
+        ady.comenzar();
+        while (!ady.fin()) {
+            Arista<String> aux = ady.proximo();
+            int j = aux.verticeDestino().posicion();
+            if (!marca[j]) {
+                tanque -= aux.peso();
+                if (tanque <= 0 && capacidad > aux.peso()) {
+                    tanque = capacidad;
+                    cargaActual++;
+                }
+                if (capacidad > aux.peso()) {
+                    caminoConMenorCargaDeCombustible(j, marca, grafo, ciudad2, capacidad, tanque, carga, cargaActual,
+                            camino, caminoActual);
+                    marca[j] = false;
+                    caminoActual.eliminarEn(caminoActual.tamanio() - 1);
+                }
+            }
+        }
+
+
+
+    }
 }
