@@ -1,4 +1,4 @@
-package practica7;
+package practica7.Ejercicio6;
 
 import classes.grafos.Grafo;
 import classes.grafos.Vertice;
