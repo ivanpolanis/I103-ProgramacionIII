@@ -68,7 +68,7 @@ public class Delta<T> {
     marca[origen.posicion()] = true;
     rutaActual.agregar(origen.dato());
     if (origen.dato().equals(destino.dato())) {
-      if(rutaActual.getRuta().tamanio() < ruta.getRuta().tamanio() || ruta.getRuta().tamanio() == 0){
+      if(rutaActual.getPeso() < ruta.getPeso() || ruta.getRuta().tamanio() == 0){
         copiar(ruta, rutaActual);
       }
       return;
@@ -81,9 +81,11 @@ public class Delta<T> {
     while (!ady.fin()) {
       Arista<T> arista = ady.proximo();
       if (!marca[arista.verticeDestino().posicion()]) {
+        rutaActual.agregarPeso(arista.peso());
         caminoMasCorto(grafo, arista.verticeDestino(), destino, marca, ruta, rutaActual);
         marca[arista.verticeDestino().posicion()] = false;
         rutaActual.eliminar(rutaActual.getRuta().tamanio() - 1);
+        rutaActual.eliminarPeso(arista.peso());
         if(origen.posicion() == 0 && !origen.dato().equals(destino.dato())) {
           rutaActual.eliminarBoleto();
         }
@@ -100,6 +102,7 @@ public class Delta<T> {
     while (!rutaActual.getRuta().fin()) {
       ruta.agregar(rutaActual.getRuta().proximo());
     }
+    ruta.setPeso(rutaActual.getPeso());
     ruta.setBoletos(rutaActual.getBoletos());
   }
   

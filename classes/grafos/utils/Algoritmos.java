@@ -4,7 +4,6 @@ import classes.grafos.Grafo;
 import classes.grafos.Vertice;
 import classes.grafos.Arista;
 import classes.ListaGenerica;
-import classes.Cola;
 import java.util.Arrays;
 
 public class Algoritmos<T> {

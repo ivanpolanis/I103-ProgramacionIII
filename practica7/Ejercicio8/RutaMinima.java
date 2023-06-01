@@ -6,15 +6,18 @@ import classes.ListaGenericaEnlazada;
 public class RutaMinima<T> {
   private ListaGenerica<T> ruta;
   private int boletos;
+  private int peso;
   
   public RutaMinima() {
     ruta = new ListaGenericaEnlazada<T>();
     boletos = 0;
+    peso = 0;
   }
 
-  public RutaMinima(ListaGenerica<T> ruta, int boletos) {
+  public RutaMinima(ListaGenerica<T> ruta, int boletos, int peso) {
     this.ruta = ruta;
     this.boletos = boletos;
+    this.peso = peso;
   }
 
   public ListaGenerica<T> getRuta() {
@@ -33,6 +36,14 @@ public class RutaMinima<T> {
     this.boletos = boletos;
   }
 
+  public int getPeso() {
+    return peso;
+  }
+
+  public void setPeso(int peso) {
+    this.peso = peso;
+  }
+
   public void agregar(T estacion) {
     ruta.agregarFinal(estacion);
   }
@@ -48,4 +59,13 @@ public class RutaMinima<T> {
   public void eliminar(int i) {
     ruta.eliminarEn(i);
   }
+
+  public void agregarPeso(int peso) {
+    this.peso += peso;
+  }
+
+  public void eliminarPeso(int peso) {
+    this.peso -= peso;
+  }
+
 }
