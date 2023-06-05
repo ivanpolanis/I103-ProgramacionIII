@@ -15,7 +15,6 @@ public class OrdenTopologico {
     for (int i = 0; i < marca.length; i++) {
       if (!marca[i]) {
         ordenTopologico(grafo, marca, grafo.listaDeVertices().elemento(i), pila);
-        pila.apilar(grafo.listaDeVertices().elemento(i));
       }
     }
     while (!pila.esVacia()) {
@@ -33,8 +32,8 @@ public class OrdenTopologico {
       int j = actual.posicion();
       if (!marca[j]) {
         ordenTopologico(grafo, marca, actual, pila);
-        pila.apilar(actual);
       }
     }
+    pila.apilar(v);
   }
 }
