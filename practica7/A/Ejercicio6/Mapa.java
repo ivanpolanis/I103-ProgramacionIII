@@ -1,4 +1,4 @@
-package practica7.Ejercicio6;
+package practica7.A.Ejercicio6;
 
 import classes.grafos.Grafo;
 import classes.grafos.Vertice;
@@ -170,6 +170,7 @@ public class Mapa {
             int j = aux.verticeDestino().posicion();
             if (!marca[j]) {
                 caminoSinCargarCombustible(j, ciudad2, marca, tanque - aux.peso(), grafo, l);
+                marca[j] = false;
                 if (!l.esVacia()) {
                     l.agregarInicio(v.dato());
                     return;
@@ -227,8 +228,6 @@ public class Mapa {
                 }
             }
         }
-
-
 
     }
 }

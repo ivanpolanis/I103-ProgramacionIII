@@ -1,4 +1,4 @@
-package practica7.Ejercicio8;
+package practica7.A.Ejercicio8;
 
 import classes.ListaGenerica;
 import classes.ListaGenericaEnlazada;

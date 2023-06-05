@@ -1,4 +1,4 @@
-package practica7.Ejercicio7;
+package practica7.A.Ejercicio7;
 
 import classes.grafos.*;
 import classes.grafos.utils.Algoritmos;
