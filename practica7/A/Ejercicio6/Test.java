@@ -1,13 +1,13 @@
-package practica7.A.Ejercicio5;
+package practica7.A.Ejercicio6;
 
 import classes.grafos.Vertice;
 import classes.grafos.VerticeImplListAdy;
 import classes.ListaGenerica;
+import classes.ListaGenericaEnlazada;
 import classes.grafos.Grafo;
 import classes.grafos.GrafoImplListAdy;
-import classes.grafos.utils.Recorridos;
 
-public class Test5 {
+public class Test {
   public static void main(String args[]) {
     Vertice<String> v1 = new VerticeImplListAdy<String>("Buenos Aires");
     Vertice<String> v2 = new VerticeImplListAdy<String>("Cordoba");
@@ -28,7 +28,7 @@ public class Test5 {
     grafo.agregarVertice(v7);
     grafo.agregarVertice(v8);
 
-    grafo.conectar(v1, v2,2);
+    grafo.conectar(v1, v2, 2);
     grafo.conectar(v1, v3, 5);
     grafo.conectar(v1, v4, 8);
     grafo.conectar(v2, v3, 2);
@@ -40,14 +40,24 @@ public class Test5 {
     grafo.conectar(v4, v7, 4);
     grafo.conectar(v4, v8, 5);
 
-    Recorridos<String> recorridos = new Recorridos<String>();
+    Mapa mapa = new Mapa(grafo);
 
-    System.out.println("DFS");
-    ListaGenerica<Vertice<String>> lista = recorridos.dfs(grafo);
-    lista.comenzar();
-    while(!lista.fin()){
-      System.out.println(lista.proximo().dato());
-    }
+    ListaGenerica<String> exc = new ListaGenericaEnlazada<String>();
+    exc.agregarFinal("Rosario");
 
+    System.out
+        .println("El camino desde Buenos Aires a San Juan es: " + mapa.devolverCamino("Buenos Aires", "Mar del Plata"));
+
+    System.out.println("El camino desde Buenos Aires a San Juan exceptuando Rosario es: "
+        + mapa.devolverCaminoExceptuando("Cordoba", "Mendoza", exc));
+
+    System.out.println("El camino más corto entre Buenos Aires y San Juan es: "
+        + mapa.caminoMasCorto("Buenos Aires", "San Juan"));
+
+    System.out.println("El camino utilizando 20 litros de combustible entre Buenos Aires y San Juan es: "
+        + mapa.caminoSinCargarCombustible("Buenos Aires", "San Juan", 20));
+
+    System.out.println("El camino con menor carga de combustible entre Buenos Aires y San Juan es: "
+        + mapa.caminoConMenorCargaDeCombustible("Buenos Aires", "San Juan", 10));
   }
 }

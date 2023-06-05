@@ -4,7 +4,7 @@ import classes.grafos.*;
 import classes.grafos.utils.OrdenTopologico;
 import classes.ListaGenerica;
 
-public class Test1 {
+public class Test {
   public static void main(String args[]) {
     Vertice<String> v1 = new VerticeImplListAdy<String>("Boxer");
     Vertice<String> v2 = new VerticeImplListAdy<String>("Medias");

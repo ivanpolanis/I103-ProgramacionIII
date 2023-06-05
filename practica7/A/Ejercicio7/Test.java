@@ -3,7 +3,7 @@ package practica7.A.Ejercicio7;
 import classes.grafos.*;
 import classes.grafos.utils.Algoritmos;
 
-public class Test7 {
+public class Test {
   public static void main(String[] args) {
     Vertice<String> v1 = new VerticeImplListAdy<String>("Buenos Aires");
     Vertice<String> v2 = new VerticeImplListAdy<String>("Santiago");

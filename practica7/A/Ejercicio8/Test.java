@@ -4,7 +4,7 @@ import classes.grafos.*;
 
 
 
-public class Test8 {
+public class Test {
   public static void main(String[] args) {
         Vertice<String> v1 = new VerticeImplListAdy<String>("Maldivas");
         Vertice<String> v2 = new VerticeImplListAdy<String>("Hawai");

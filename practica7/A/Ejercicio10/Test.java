@@ -5,7 +5,7 @@ import classes.grafos.Grafo;
 import classes.grafos.GrafoImplListAdy;
 import classes.grafos.VerticeImplListAdy;
 
-public class Test10 {
+public class Test {
   public static void main(String[] args) {
             Vertice<String> v1 = new VerticeImplListAdy<String>("Lionel Messi");
         Vertice<String> v2 = new VerticeImplListAdy<String>("Agustin Murray");

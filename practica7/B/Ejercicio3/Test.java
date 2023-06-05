@@ -7,7 +7,7 @@ import classes.grafos.GrafoImplListAdy;
 import classes.grafos.utils.Dijkstra;
 import classes.grafos.utils.CostoTodosMinimos;
 
-public class Test3 {
+public class Test {
   public static void main(String[] args) {
     Vertice<String> v1 = new VerticeImplListAdy<String>("A");
     Vertice<String> v2 = new VerticeImplListAdy<String>("B");
