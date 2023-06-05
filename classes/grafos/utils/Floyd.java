@@ -27,7 +27,7 @@ public class Floyd<T> {
         Arista<T> a = ady.proximo();
         int j = a.verticeDestino().posicion();
         mtx[i][j].setW(a.peso());
-        mtx[i][j].setPrev(j);
+        mtx[i][j].setPrev(i);
       }
     }
 

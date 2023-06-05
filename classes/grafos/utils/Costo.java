@@ -31,7 +31,7 @@ public class Costo implements Comparable<Costo> {
   }
   
   public int compareTo(Costo c) {
-    return this.w - c.w;
+    return Integer.compare(this.w, c.getW());
   }
 
 }

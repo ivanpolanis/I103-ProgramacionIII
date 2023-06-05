@@ -39,16 +39,17 @@ public class Test {
 
     Dijkstra<String> dijkstra = new Dijkstra<String>();
     Costo[] arr = dijkstra.dijkstraSinHeap(grafo, v1);
-    CostoTodosMinimos[] arr2 = dijkstra.dijkstraTodosMinimos(grafo, v1);
+    Costo[] arr2 = dijkstra.dijkstraConHeap(grafo, v1);
 
     for (int i = 0; i < arr.length; i++) {
       System.out.println("Vertice: " + grafo.listaDeVertices().elemento(i).dato() + " Peso: " + arr[i].getW() + " Previo: "
           + grafo.listaDeVertices().elemento(arr[i].getPrev()).dato());
     }
+    
     System.out.println("--------------------------------------------------");
     for (int i = 0; i < arr2.length; i++) {
       System.out.println("Vertice: " + grafo.listaDeVertices().elemento(i).dato() + " Peso: " + arr2[i].getW() + " Previo: "
-          + grafo.listaDeVertices().elemento(arr2[i].getPrev()).dato() + " Camino: " + arr2[i].getNumCaminosMinimos());
+          + grafo.listaDeVertices().elemento(arr2[i].getPrev()).dato());
     }
   }
 }
