@@ -6,7 +6,6 @@ import classes.grafos.Grafo;
 import classes.grafos.GrafoImplListAdy;
 import classes.grafos.utils.Dijkstra;
 import classes.grafos.utils.Costo;
-import classes.grafos.utils.CostoTodosMinimos;
 
 public class Test {
   public static void main(String[] args) {
@@ -45,7 +44,7 @@ public class Test {
       System.out.println("Vertice: " + grafo.listaDeVertices().elemento(i).dato() + " Peso: " + arr[i].getW() + " Previo: "
           + grafo.listaDeVertices().elemento(arr[i].getPrev()).dato());
     }
-    
+
     System.out.println("--------------------------------------------------");
     for (int i = 0; i < arr2.length; i++) {
       System.out.println("Vertice: " + grafo.listaDeVertices().elemento(i).dato() + " Peso: " + arr2[i].getW() + " Previo: "

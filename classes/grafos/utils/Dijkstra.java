@@ -47,34 +47,38 @@ public class Dijkstra<T> {
   // --------------------- HEAP VERSION --------------------------
 
   public Costo[] dijkstraConHeap(Grafo<T> grafo, Vertice<T> v) {
-    int lenght = grafo.listaDeVertices().tamanio();
-    Costo[] costos = new Costo[lenght];
-    if ((!grafo.listaDeVertices().incluye(v)))
+    int length = grafo.listaDeVertices().tamanio();
+    Costo[] costos = new Costo[length];
+    if (!grafo.listaDeVertices().incluye(v)) {
       return null;
-    boolean[] marca = new boolean[lenght];
+    }
+    boolean[] marca = new boolean[length];
     PriorityQueue<Costo> heap = new PriorityQueue<>();
 
-    for (int i = 0; i < lenght; i++) {
+    for (int i = 0; i < length; i++) {
       costos[i] = new Costo();
+      costos[i].setW(Integer.MAX_VALUE); // Establecer distancias iniciales como infinito
     }
 
     costos[v.posicion()].setW(0);
+    costos[v.posicion()].setPrev(v.posicion()); // Establecer distancia inicial del vertice origen como 0
     heap.offer(new Costo(0, v.posicion()));
-
     while (!heap.isEmpty()) {
-      Vertice<T> U = grafo.listaDeVertices().elemento(heap.poll().getPrev());
-      if (marca[U.posicion()])
+      Costo costoActual = heap.poll();
+      int uPosicion = costoActual.getPrev();
+      Vertice<T> U = grafo.listaDeVertices().elemento(uPosicion);
+      if (marca[U.posicion()]) {
         continue;
+      }
       marca[U.posicion()] = true;
       ListaGenerica<Arista<T>> ady = grafo.listaDeAdyacentes(U);
       ady.comenzar();
       while (!ady.fin()) {
-        Arista<T> A = ady.proximo();
-        Vertice<T> W = A.verticeDestino();
-        if ((!marca[W.posicion()])
-            && (costos[W.posicion()].getW() > costos[U.posicion()].getW() + A.peso())) {
-          costos[W.posicion()].setW(costos[U.posicion()].getW() + A.peso());
-          costos[W.posicion()].setPrev(U.posicion());
+        Arista<T> arista = ady.proximo();
+        Vertice<T> W = arista.verticeDestino();
+        if (!marca[W.posicion()] && costos[W.posicion()].getW() > costos[uPosicion].getW() + arista.peso()) {
+          costos[W.posicion()].setW(costos[uPosicion].getW() + arista.peso());
+          costos[W.posicion()].setPrev(uPosicion);
           heap.offer(new Costo(costos[W.posicion()].getW(), W.posicion()));
         }
       }
