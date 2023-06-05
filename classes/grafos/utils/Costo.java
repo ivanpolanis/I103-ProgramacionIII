@@ -6,7 +6,7 @@ public class Costo implements Comparable<Costo> {
 
   public Costo() {
     w = Integer.MAX_VALUE;
-    prev = 0;
+    prev = -1;
   }
 
   public Costo(int w, int prev) {

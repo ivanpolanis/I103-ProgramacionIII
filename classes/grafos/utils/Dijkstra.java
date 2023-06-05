@@ -4,7 +4,6 @@ import classes.grafos.Grafo;
 import classes.ListaGenerica;
 import classes.grafos.Arista;
 import classes.grafos.Vertice;
-import java.util.PriorityQueue;
 
 public class Dijkstra<T> {
 
