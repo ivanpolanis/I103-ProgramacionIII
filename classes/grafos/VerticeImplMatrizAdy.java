@@ -1,4 +1,4 @@
-package classes.grafos;
+package classes.Grafos;
 
 public class VerticeImplMatrizAdy<T> implements Vertice<T> {
     private T dato;

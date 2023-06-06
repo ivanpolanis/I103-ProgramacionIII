@@ -1,7 +1,6 @@
-package classes.grafos;
+package classes.Grafos;
 
-import classes.*;;
-
+import classes.ListaGenerica.ListaGenerica;
 
 public interface Grafo<T> {
 	public void  agregarVertice(Vertice<T> v);

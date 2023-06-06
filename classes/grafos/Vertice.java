@@ -1,4 +1,4 @@
-package classes.grafos;
+package classes.Grafos;
 
 public interface Vertice<T> {
 	

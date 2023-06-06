@@ -1,6 +1,7 @@
-package classes.grafos;
+package classes.Grafos;
 
-import classes.*;
+import classes.ListaGenerica.ListaGenerica;
+import classes.ListaGenerica.ListaGenericaEnlazada;
 
 public class GrafoImplMatrizAdy<T> implements Grafo<T> {
 	private int maxVertices;
@@ -19,6 +20,14 @@ public class GrafoImplMatrizAdy<T> implements Grafo<T> {
 		vertices.agregarFinal(v2);
 	}
 	
+	public int getMaxVertices() {
+		return maxVertices;
+	}
+
+	public void setMaxVertices(int maxVertices) {
+		this.maxVertices = maxVertices;
+	}
+
 	@Override
 	public void eliminarVertice(Vertice<T> v) {
 		ListaGenerica<Vertice<T>> verticesAux = this.listaDeVertices();
@@ -78,6 +87,5 @@ public class GrafoImplMatrizAdy<T> implements Grafo<T> {
 	public Vertice<T> vertice(int posicion) {
 		return vertices.elemento(posicion);
 	} 
-
 
 }

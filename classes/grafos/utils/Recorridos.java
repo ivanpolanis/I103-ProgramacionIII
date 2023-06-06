@@ -1,11 +1,11 @@
-package classes.grafos.utils;
+package classes.Grafos.utils;
 
-import classes.grafos.Grafo;
-import classes.grafos.Vertice;
-import classes.grafos.Arista;
-import classes.ListaGenerica;
-import classes.ListaGenericaEnlazada;
-import classes.Cola;
+import classes.ListaGenerica.utils.Cola;
+import classes.ListaGenerica.ListaGenerica;
+import classes.ListaGenerica.ListaGenericaEnlazada;
+import classes.Grafos.Arista;
+import classes.Grafos.Grafo;
+import classes.Grafos.Vertice;
 
 public class Recorridos<T> {
   public ListaGenerica<Vertice<T>> dfs(Grafo<T> grafo){

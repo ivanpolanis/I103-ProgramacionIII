@@ -1,4 +1,4 @@
-package classes.grafos;
+package classes.Grafos;
 
 public class AristaImpl<T> implements Arista<T> {
 	private Vertice<T> destino;

@@ -1,4 +1,4 @@
-package classes.grafos.utils;
+package classes.Grafos.utils;
 
 public class CostoTodosMinimos extends Costo {
     private int numCaminosMinimos;

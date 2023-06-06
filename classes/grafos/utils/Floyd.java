@@ -1,8 +1,8 @@
-package classes.grafos.utils;
+package classes.Grafos.utils;
 
-import classes.grafos.Grafo;
-import classes.ListaGenerica;
-import classes.grafos.Arista;
+import classes.ListaGenerica.ListaGenerica;
+import classes.Grafos.Arista;
+import classes.Grafos.Grafo;
 
 public class Floyd<T> {
 

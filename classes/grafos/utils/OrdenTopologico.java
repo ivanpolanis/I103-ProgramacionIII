@@ -1,11 +1,11 @@
-package classes.grafos.utils;
+package classes.Grafos.utils;
 
-import classes.grafos.Arista;
-import classes.grafos.Grafo;
-import classes.grafos.Vertice;
-import classes.ListaGenerica;
-import classes.ListaGenericaEnlazada;
-import utils.Pila;
+import classes.ListaGenerica.ListaGenerica;
+import classes.ListaGenerica.ListaGenericaEnlazada;
+import classes.Grafos.Arista;
+import classes.Grafos.Grafo;
+import classes.Grafos.Vertice;
+import classes.ListaGenerica.utils.Pila;
 
 public class OrdenTopologico {
   public static ListaGenerica<Vertice<String>> ordenTopologico(Grafo<String> grafo) {

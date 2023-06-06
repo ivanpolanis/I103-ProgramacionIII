@@ -1,10 +1,11 @@
-package classes.grafos.utils;
+package classes.Grafos.utils;
 
-import classes.grafos.Grafo;
-import classes.grafos.Vertice;
-import classes.grafos.Arista;
-import classes.ListaGenerica;
 import java.util.Arrays;
+
+import classes.ListaGenerica.ListaGenerica;
+import classes.Grafos.Arista;
+import classes.Grafos.Grafo;
+import classes.Grafos.Vertice;
 
 public class Algoritmos<T> {
   public boolean subgrafoCuadrado(Grafo<T> grafo) {

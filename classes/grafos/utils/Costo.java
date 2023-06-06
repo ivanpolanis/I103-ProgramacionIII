@@ -1,4 +1,4 @@
-package classes.grafos.utils;
+package classes.Grafos.utils;
 
 public class Costo implements Comparable<Costo> {
   private int w;
