@@ -1,0 +1,78 @@
+public class Parcial{
+    public ListaGenerica<String> resolver(Grafo<Ciudad> ciudades, String origen, String destino, int minFase){
+        if(ciudades != null || ciudades.esVacio())
+            return null;
+        ListaGenerica<Vertice> v = grafo.listaDeVertices();
+        boolean[] marca = new boolean[v.tamanio()];
+        Vertice<Ciuddad> vIni = null;
+        Vertice<Ciuddad> vFin = null;
+        for(int i = 0; i < v.tamanio(); i++){
+            if(v.elemento(i).dato().getNombre().equals(origen))
+                vIni = v.elemento(i);
+            if(v.elemento(i).dato().getNombre().equals(destino))
+                vFin = v.elemento(i);
+        }
+    
+        ListaGenerica<String> actual = new ListaGenerica<>();
+
+        if(vIni != null && vFin != null)
+            resolver(ciudades, vIni, vFin, 2, new ListaGenerica<String>(), actual);
+        return actual;
+    }
+
+    private boolean resolver(Grafo<Ciudad> ciudades, Vertice<Ciudad> origen, Vertice<Ciudad> destino, int minFase, ListaGenerica<String> l, ListaGenerica<String> actual){
+        marca[origen.posicion()] = true;
+        actual.agregarFinal(origen.dato().getNombre());
+        if(origen.dato().getNombre().equals(destino.dato().getNombre())){
+            return true;
+        }
+
+        ListaGenerica<Arista<Ciudad>> ady = grafo.listaDeAdyacentes(origen);
+        ady.comenzar();
+        while(!ady.fin()){
+            Arista<Ciudad> a = ady.proximo();
+            Vertice<Ciudad> v = a.verticeDestino();
+            int j = v.posicion();
+            if(!marca[j] && a.peso() != 0 && minFase <= v.dato().getFase()){
+               if(resolver(ciudades, v, destino, minFase, l, actual)
+                return true;
+                marca[j] = false;
+                actual.eliminarEn(actual.tamanio() - 1);
+            }
+        }
+        return false;
+    }
+}
+
+public class Ciudad{
+    private String nombre;
+    private int fase;
+
+    public Ciudad(String nombre, int fase){
+        this.nombre = nombre;
+        this.fase = fase;
+    }
+
+    public Ciudad(){
+        this.nombre = new String();
+        this.fase = 0;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+
+    public int getFase(){
+        return fase;
+    }
+
+    public void setFase(int fase){
+        this.fase = fase;
+    }
+
+
+}

@@ -1,0 +1,24 @@
+public class Parcial{
+    public int resolver(Grafo<Integer> grafo, int virus){
+        Cola<Vertice<Integer>> cola = new Cola<>();
+        cola.encolar(grafo.listaDeVertices().elemento(virus));
+        boolean[] marca = new boolean[grafo.listaDeVertices().tamanio()];
+        int tiempo = 0;
+        while(!cola.esVacia()){
+            Vertice<Integer> v = cola.desencolar();
+            ListaGenerica<Arista<Integer>> ady = grafo.listaDeAdyacentes(v);
+            ady.comenzar();
+            while(!ady.fin()){
+                Arista<Integer> act = ady.proximo();
+                Vertice<Integer> vAct = act.verticeDestino();
+                int j = vAct.posicion();
+                if(!marca[j]){
+                    cola.encolar(vAct);
+                    marca[j] = true;
+                }
+            }
+            tiempo++;
+        }
+        return tiempo;
+    }
+}

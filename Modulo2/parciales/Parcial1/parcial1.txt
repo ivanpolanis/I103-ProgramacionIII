@@ -1,0 +1,76 @@
+public class Parcial{
+    public int resolver(Grafo<Ciudad> ciudades, String origen, String destino, int maxControles){
+        if(ciudades == null || ciudades.esVacio())
+            return null;
+        boolean[] marca = new boolean[ciudades.listaDeVertices().tamanio()];
+        ListaGenerica<Vertice<>> v = ciudades.listaDeVertices();
+        Vertice<> vIni;
+        Vertice<> vFin;
+        for(int i = 0; i < marca.length; i++){
+            if(v.elemento(i).dato().equals(origen))
+                vIni = v.elemento(i);
+            if(v.elemento(i).dato().equals(destino))
+                vFin = v.elemento(i);
+        }
+        int dias;
+        if(vIni != null && vFin != null)
+            dias = resolver(ciudades, marca, vIni, vFin, maxControles, -1, 0);
+        return dias;
+    }
+
+    private int resolver(Grafo<Ciudad> ciudades, boolean[] marca, Vertice<Ciudad> origen, Vertice<Ciudad> destino, int maxCount,  int dias, int diasActual){
+        marca[origen.posicion()] = true;
+        actual.agregarFinal(origen.dato().getNombre());
+        if(origen.dato().getNombre().equals(destino.dato().getNombre())){
+            if(diasActual < dias){
+                return diasActual;
+            }
+            return dias;
+        }
+        ListaGenerica<Arista<Ciudad>> ady = grafo.listaDeAdyacentes(origen);
+        ady.comenzar();
+        while(!ady.fin()){
+            Arista<Ciudad> a = ady.proximo();
+            Vertice<Ciudad> v = a.verticeDestino();
+            int j = v.posicion();
+            if(!marca[j] && a.peso() <= maxCount){
+                dias = resolver(ciudades,marca,v,destino,maxCount,dias,diasActual + v.getMaxDias);
+                marca[j] = false;
+            }
+        }
+    return dias;
+    }
+}
+
+public class Ciudad{
+    private String nombre;
+    private int maxDias;
+
+    public Ciudad(String nombre, int maxDias){
+        this.nombre = nombre;
+        this.maxDias = maxDias;
+    }
+
+    public Ciudad(){
+        this.nombre = new String();
+        this.maxDias = 0;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+
+    public int getMaxDias(){
+        return maxDias;
+    }
+
+    public void setMaxDias(int maxDias){
+        this.maxDias = maxDias;
+    }
+
+
+}

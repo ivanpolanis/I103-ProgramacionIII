@@ -1,0 +1,57 @@
+public class Parcial{
+
+public int[] resolver(Grafo<Ciudad> ciudades, String origen, String destino){
+
+    if(ciudades == null || ciudades.esVacio())
+        return null;
+
+    ListaGenerica<Vertice<Ciudad>> v = ciudades.listaDeVertices();
+    boolean[] marca = new boolean[v.tamanio()];
+
+    Vertice<Ciudad> vIni = null;
+    Vertice<Ciudad> vFin = null;
+
+    for(int i = 0; i < v.tamanio(); i++){
+        if(v.elemento(i).dato().getNombre(origen))
+            vIni = v.elemento(i);
+        if(v.elemento(i).dato().getNombre(destino))
+            vFin = v.elemento(i);
+    }
+
+    int[] fases = new int[5];
+    
+    if(vIni != null && vFin != null)
+        resolver(ciudades, vIni, vFin, marca, new boolean[v.tamanio()], fases);
+    return fases;
+}
+
+public boolean resolver(Grafo<Ciudad> ciudades, Vertice<Ciudad> origen, Vertice<Ciudad> destino, boolean[] marca, boolean[] recorridos, int[] fases){
+    boolean[origen.posicion()] = true;
+    
+    if(origen.dato().getNombre().equals(destino.dato().getNombre())){
+        return true;
+    }
+
+    ListaGenerica<Arista<Ciudad>> ady = ciudades.listaDeAdyacentes(origen);
+    ady.comenzar();
+
+    while(!ady.fin()){
+        Arista<Ciudad> a = ady.proximo();
+        Vertice<Ciudad> v = a.verticeDestino();
+        int j = v.posicion();
+        if(!marca[j] && a.peso() != 0){
+            if(resolver()){
+                if(!recorridos[j]){
+                    recorridos[j] = true;
+                    fases[v.getFase()-1]++;
+                }
+            }
+            marca[j] = false;
+        }
+    }
+
+    return false;
+
+}
+
+}
